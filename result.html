@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="style sheet" href="{{url_for('static', filenmae='style.css')}}">
+        <title>Results</title>
+    </head>
+    <body>
+        <h1>View the results</h1>
+        <table>
+            <tr>
+            <th>Candidate</th>
+                <th>Votes</th>
+            </tr>
+            {%for candidate, vote_count in results%}
+            <tr>
+                <td>{{candidate.name}}</td>
+                <td>{{vote_count}}</td>
+            </tr>
+            {%end for%}
+        </table>
+        <p><a href="{{url_for('vote')}}">Vote Again</a></p>
+        <p><a href="{{url_for(logout')}}">logout</a></p>
+    </body>
+</html>
