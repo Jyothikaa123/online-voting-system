@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="style sheet" href="{{url_for('static',filename='style.css')}}">
+        <title>login</title>
+        
+    </head>
+    <body>
+        <h1>login here</h1>
+        <form method="POST">
+            <label for ="user name">Uesr name</label>
+            <input value="text" id ="username" name="username" required>
+            <label for="password">Password</label>
+            <input value="password" id ="password" name="password" required>
+            <button type="submit">login</button>
+        </form>
+        <p><a href="{{url_for('home')}}">Back to home</a></p>
+        {%with messages=get_flashed_messages(with_categories=true)%}
+        {%if messages%}
+        <ul>
+            {% for category ,message in message%}
+            <li class="{{category}}">{{message}}</li>
+            {%end for%}
+            
+        </ul>
+        {%end if%}
+        {%end with%}
+    </body>
+</html>
